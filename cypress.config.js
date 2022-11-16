@@ -1,4 +1,4 @@
-const { defineConfig } = require('cypress')
+const { defineConfig } = require('cypress');
 const fs = require('fs')
 
 module.exports = defineConfig({
@@ -6,10 +6,16 @@ module.exports = defineConfig({
         baseUrl: 'https://conexaoqa.herokuapp.com',
         viewportHeight: 1080,
         viewportWidth: 1920,
+        defaultCommandTimeout: 15000,
+        requestTimeout: 10000,
+        retries: {
+            runMode: 2,
+            openMode: 0
+        },
         
         // eslint-disable-next-line
         setupNodeEvents(on, config) {
-        
+            
             // listener
             on('task', {
 
@@ -19,11 +25,14 @@ module.exports = defineConfig({
                     return null
                 },
 
-                lerPasta() {
-                    return fs.readdirSinc('cypress/e2e/api').length 
+                lerPasta(caminho) {
+                    return fs.readdirSync(caminho).length
+                },
+
+                lerEmail() {
+                    return process.env.email
                 }
             })
-       
         },
     },
 });

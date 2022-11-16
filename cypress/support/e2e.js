@@ -1,3 +1,7 @@
+
+
+import './commands'
+
 before(() => {
     cy.log('e2e.js - BEFORE - ALL') 
 })  
