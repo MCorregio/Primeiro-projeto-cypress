@@ -1,4 +1,8 @@
+// eslint-disable-next-line
+/// <reference path="index.d.ts"/> 
 
+import registerCypressGrep from 'cypress-grep'
+registerCypressGrep()
 
 import './commands'
 

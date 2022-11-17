@@ -2,6 +2,7 @@ const { defineConfig } = require('cypress');
 const fs = require('fs')
 
 module.exports = defineConfig({
+    projectId: 'kb2aq9',
     e2e: {
         baseUrl: 'https://conexaoqa.herokuapp.com',
         viewportHeight: 1080,
